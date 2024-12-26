@@ -1,9 +1,13 @@
+import { FastifyListenOptions } from "fastify";
 import app from "./app";
+import { config } from "./config";
 
-const PORT = 3000;
+const PORT: FastifyListenOptions["port"] = config.port
+    ? Number(config.port)
+    : undefined;
 
 export const startServer = async () => {
-    app.listen({ port: PORT, host: "0.0.0.0" }, (err, add) => {
+    app.listen({ port: PORT, host: "0.0.0.0" }, (err, address) => {
         if (err) {
             console.log(err);
         } else {
