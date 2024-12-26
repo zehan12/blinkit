@@ -11,4 +11,10 @@ if (!configValidation.success) {
 export const config = {
     env: process.env.NODE_ENV,
     port: process.env.PORT || 3000,
+    db: {
+        uri:
+            process.env.NODE_ENV === "production" && process.env.DB_URI
+                ? process.env.DB_URI
+                : `mongodb://localhost:27017/${process.env.APP_NAME}`,
+    },
 };
