@@ -1,6 +1,5 @@
 import app from "./app";
-import { config } from "./config";
-import { connectDB } from "./config/db";
+import { connectDB, config } from "./config";
 
 const { port, db } = config;
 
