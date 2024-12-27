@@ -1,11 +1,9 @@
-import Fastify, { FastifyInstance } from "fastify";
+import express, { Application, Request, Response } from "express";
 
-const app: FastifyInstance = Fastify({
-    logger: true,
-});
+const app: Application = express();
 
-app.get("/", (req, res) => {
-    res.status(200).send({ message: "api is working." });
+app.get("/", (req: Request, res: Response) => {
+    res.status(200).json({ message: "api is working." });
 });
 
 export default app;
