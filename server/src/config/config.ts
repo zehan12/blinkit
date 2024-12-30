@@ -20,4 +20,8 @@ export const config = {
                 ? process.env.DB_URI
                 : `mongodb://localhost:27017/${process.env.APP_NAME}`,
     },
+    admin: {
+        email: process.env.ADMIN_EMAIL,
+        password: process.env.ADMIN_PASSWORD,
+    },
 };
