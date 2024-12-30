@@ -1,5 +1,8 @@
-require("dotenv").config({ path: __dirname + "/../../.env" });
+import dotenv from "dotenv";
 import { configSchema } from "../validation";
+import path from "node:path";
+
+dotenv.config({ path: path.resolve(process.cwd(), ".env") });
 
 const configValidation = configSchema.safeParse(process.env);
 
