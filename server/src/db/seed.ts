@@ -1,11 +1,11 @@
-import { connect, connection } from "mongoose";
+import mongoose from "mongoose";
 import { config } from "../config";
 import { Category, Product } from "../models";
 import { categories, products } from "../mock";
 
 (async () => {
     try {
-        await connect(config.db.uri);
+        await mongoose.connect(config.db.uri);
         await Product.deleteMany({});
         await Category.deleteMany({});
 
@@ -27,7 +27,8 @@ import { categories, products } from "../mock";
     } catch (error) {
         console.log("Error while seeding database : ", error);
     } finally {
-        connection.close();
+        mongoose.connection.close();
         console.log("Database seeding finished");
+        process.exit(1);
     }
 })();
