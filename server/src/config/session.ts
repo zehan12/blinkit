@@ -1,4 +1,3 @@
-const mongoose = require("mongoose");
 import session from "express-session";
 import MongoDBStore from "connect-mongodb-session";
 import { config } from "./config";
