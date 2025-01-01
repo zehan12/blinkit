@@ -1,4 +1,5 @@
 import express, { Application, Request, Response } from "express";
+import cors from "cors";
 import { sessionMiddleware } from "./middleware";
 import { ENDPOINT_V1_PREFIX } from "./constant";
 import {
@@ -7,9 +8,11 @@ import {
     profileRoutesV1,
     tokenRouesV1,
 } from "./routes";
+import { corsOptions } from "./config";
 
 const app: Application = express();
 
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
