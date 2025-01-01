@@ -1,7 +1,7 @@
 // src/models/tokenPlugin.ts
 import { Schema, Document, Model } from "mongoose";
 import jwt from "jsonwebtoken";
-import { config } from "../../config";
+import { config } from "../../configs";
 
 export interface ITokenMethods {
     generateAccessToken(): string;

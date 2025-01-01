@@ -1,5 +1,5 @@
 import session from "express-session";
-import { config, store } from "../config";
+import { config, store } from "../configs";
 
 export const sessionMiddleware = session({
     secret: "sieL67H7GbkzJ4XCoH0IHcmO1hGBSiG5" as string,

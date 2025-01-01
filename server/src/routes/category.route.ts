@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { products } from "../mock";
+import { products } from "../mocks";
 
 export const getAllCategories = async (
     req: Request,

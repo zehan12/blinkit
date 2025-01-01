@@ -1,8 +1,8 @@
 import { Request, Response, Router } from "express";
-import { config } from "../config";
+import { config } from "../configs";
 import { Customer, DeliveryPartner } from "../models";
 import jwt from "jsonwebtoken";
-import { ROLE } from "../constant";
+import { ROLE } from "../constants";
 import { comparePassword } from "../helpers/bcrypt";
 import { generateTokens } from "../helpers";
 

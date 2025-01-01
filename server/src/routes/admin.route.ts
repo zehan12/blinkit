@@ -2,9 +2,9 @@
 
 import { Router, Request, Response, NextFunction } from "express";
 import { Admin } from "../models";
-import { isAdminAuthenticated } from "../middleware";
+import { isAdminAuthenticated } from "../middlewares";
 import { comparePassword } from "../helpers/bcrypt";
-import { config } from "../config";
+import { config } from "../configs";
 // import bcrypt from "bcrypt";
 // import rateLimit from "express-rate-limit";
 

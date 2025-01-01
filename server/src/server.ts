@@ -1,5 +1,5 @@
 import app from "./app";
-import { connectDB, config } from "./config";
+import { connectDB, config } from "./configs";
 const { port, db } = config;
 
 const PORT = port ? Number(port) : undefined;

@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { configSchema } from "../validation";
+import { configSchema } from "../validations";
 import path from "node:path";
 
 dotenv.config({ path: path.resolve(process.cwd(), ".env") });

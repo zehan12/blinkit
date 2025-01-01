@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import { config } from "../config";
+import { config } from "../configs";
 import { Category, Product } from "../models";
-import { categories, products } from "../mock";
+import { categories, products } from "../mocks";
 
 (async () => {
     try {

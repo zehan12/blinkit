@@ -1,7 +1,7 @@
 import { Request, Response, Router } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
-import { config } from "../config";
-import { ROLE } from "../constant";
+import { config } from "../configs";
+import { ROLE } from "../constants";
 import { Customer, DeliveryPartner } from "../models";
 import { generateTokens } from "../helpers";
 

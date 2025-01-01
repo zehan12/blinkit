@@ -1,5 +1,5 @@
 // src/models/userPlugin.ts
-import { Schema, Document, Model, HookNextFunction } from "mongoose";
+import { Schema, Document, Model, CallbackWithoutResultAndOptionalError } from "mongoose";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
@@ -17,21 +17,26 @@ export function userPlugin<T extends IUserDocument>(
     schema: Schema<T, Model<T>, IUserMethods>
 ): void {
     // Pre-save Hook for Password Hashing
-    schema.pre<T>("save", async function (next: HookNextFunction) {
-        if (this.isModified("password") && this.password) {
-            try {
-                const salt = await bcrypt.genSalt(10);
-                this.password = await bcrypt.hash(this.password, salt);
+    schema.pre<T>(
+        "save",
+        async function (next: CallbackWithoutResultAndOptionalError) {
+            if (this.isModified("password") && this.password) {
+                try {
+                    const salt = await bcrypt.genSalt(10);
+                    this.password = await bcrypt.hash(this.password, salt);
+                    next();
+                } catch (error) {
+                    next(error);
+                }
+            } else {
                 next();
-            } catch (error) {
-                next(error);
             }
-        } else {
-            next();
         }
-    });
+    );
 
-    schema.methods.verifyPassword = async function (password: string): Promise<boolean> {
+    schema.methods.verifyPassword = async function (
+        password: string
+    ): Promise<boolean> {
         if (!this.password) return false;
         return bcrypt.compare(password, this.password);
     };
@@ -45,5 +50,4 @@ export function userPlugin<T extends IUserDocument>(
             delete ret.updatedAt;
         },
     });
-
 }
