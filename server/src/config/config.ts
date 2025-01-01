@@ -24,4 +24,14 @@ export const config = {
         email: process.env.ADMIN_EMAIL,
         password: process.env.ADMIN_PASSWORD,
     },
+    jwt: {
+        accessToken: {
+            secret: "anyrandomaccesssecret",
+            expiry: "1d",
+        },
+        refreshToken: {
+            secret: "anyrandomrefreshsecret",
+            expiry: "7d",
+        },
+    },
 };
