@@ -4,7 +4,7 @@ defmodule ApiGatewayWeb.ProxyController do
   alias HTTPoison
 
   # Replace with your actual backend URL
-  @express_url "http://localhost:3000"
+  @load_balancer_url "http://localhost:3000"
 
   def forward(conn, _params) do
     path = conn.request_path
@@ -18,7 +18,7 @@ defmodule ApiGatewayWeb.ProxyController do
     {:ok, body, _} = Plug.Conn.read_body(conn)
 
     # Forward the request to the backend service
-    case HTTPoison.request(method, "#{@express_url}#{path}", body, headers) do
+    case HTTPoison.request(method, "#{@load_balancer_url}#{path}", body, headers) do
       {:ok, %HTTPoison.Response{status_code: status, body: response_body, headers: resp_headers}} ->
         # Log response for debugging (uncomment if needed)
         # IO.inspect(%{status: status, body: response_body, headers: resp_headers}, label: "Backend Response")
