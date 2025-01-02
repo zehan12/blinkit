@@ -12,5 +12,8 @@ defmodule ApiGatewayWeb.Router do
 
   scope "/api", ApiGatewayWeb do
     pipe_through(:api)
+
+    match(:*, "/*path", ProxyController, :forward)
   end
+
 end
