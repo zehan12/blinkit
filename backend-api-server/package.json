@@ -4,7 +4,8 @@
   "main": "./dist/src/server.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "npx tsc -w & nodemon ./dist/server.js",
+    "start": "npm install pm2 -g && npx tsc && npx pm2 start ecosystem.config.js --time && npx pm2 logs",
+    "dev": "npx tsc -w & nodemon ./dist/server.js",
     "seed": "npx tsx ./src/db/seed.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
