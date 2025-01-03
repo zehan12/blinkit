@@ -1,13 +1,14 @@
 import { Fragment } from 'react'
 import './App.css'
+import { ApplicationRoutes } from './routes/ApplicationRoutes'
+import { RootProvider } from './providers'
 
 function App() {
   return (
     <Fragment>
-      <main className='w-full h-screen bg-purple-400'>
-        <h1 className="text-3xl font-bold underline text-center text-red-500 bg-green-600 w-40 mx-auto">
-          Blinkit</h1>
-      </main>
+      <RootProvider>
+        <ApplicationRoutes />
+      </RootProvider>
     </Fragment>
   )
 }
