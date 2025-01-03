@@ -1,0 +1,1 @@
+npx shadcn@latest add "https://v0.dev/chat/b/bAd6fWdHSG8?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..8HDdhOdFikEnsmVM.rg3g6QwxgeaQaPyagCY31W_chW68CNhEjK6fv3bsLq0IJZm3c9NnBPgP._u3i1zrZQtRCyf84TKgWSQ"
