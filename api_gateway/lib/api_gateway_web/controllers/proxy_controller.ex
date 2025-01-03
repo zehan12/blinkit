@@ -4,7 +4,7 @@ defmodule ApiGatewayWeb.ProxyController do
   alias HTTPoison
 
   # Replace with your actual backend URL
-  @load_balancer_url "http://localhost:3000"
+  @load_balancer_url "http://localhost:8080"
 
   def forward(conn, _params) do
     path = conn.request_path
